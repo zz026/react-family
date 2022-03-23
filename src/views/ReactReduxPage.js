@@ -1,6 +1,22 @@
 import React, { Component } from 'react';
-import { connect } from './w-react-redux'
+import { connect } from '../w-react-redux'
 
+@connect(
+  // mapStateToProps
+  ({ count }) => ({ count }),
+  // mapDispatchToProps
+  // dispatch => {
+  //   return {
+  //     add: () => dispatch({ type: 'ADD' }),
+  //     dispatch
+  //   }
+  // }
+  {
+    add: () => ({ type: 'ADD' }),
+    minus: () => ({ type: 'MINUS' }),
+  }
+
+)
 class ReactReduxPage extends Component {
 
   handleAdd = () => {
@@ -22,19 +38,4 @@ class ReactReduxPage extends Component {
 }
 
 
-export default connect(
-  // mapStateToProps
-  ({ count }) => ({ count }),
-  // mapDispatchToProps
-  // dispatch => {
-  //   return {
-  //     add: () => dispatch({ type: 'ADD' }),
-  //     dispatch
-  //   }
-  // }
-  {
-    add: () => ({ type: 'ADD' }),
-    minus: () => ({ type: 'MINUS' }),
-  }
-
-)(ReactReduxPage)
+export default ReactReduxPage

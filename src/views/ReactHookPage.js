@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from "./w-react-redux"
+import { useDispatch, useSelector } from "../w-react-redux"
 
 const ReactHookPage = () => {
   const count = useSelector(({ count }) => count)

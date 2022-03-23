@@ -1,9 +1,9 @@
 import './App.css';
-import Login from './Login'
-import ReduxPage from './ReduxPage'
-import ReactReduxPage from './ReactReduxPage'
-import ReactHookPage from './ReactHookPage'
-import NoFind from './NoFind'
+import Login from './views/Login'
+import ReduxPage from './views/ReduxPage'
+import ReactReduxPage from './views/ReactReduxPage'
+import ReactHookPage from './views/ReactHookPage'
+import NoFind from './views/NoFind'
 import { Provider } from './w-react-redux'
 import store from './store';
 import React from 'react'
@@ -96,7 +96,7 @@ const Detail = props => {
 }
 
 
-// @withRouter
+@withRouter
 class Product2 extends React.Component {
   constructor(props) {
     super(props);
@@ -123,7 +123,7 @@ class Product2 extends React.Component {
     );
   }
 }
-Product2 = withRouter(Product2)
+// Product2 = withRouter(Product2)
 
 const Home = (props) => {
   return <Redirect to="/testRedirect" />

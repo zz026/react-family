@@ -1,6 +1,6 @@
 import { Button, Input } from 'antd';
 import { useEffect } from 'react';
-import Form from './components/Form'
+import Form from '../components/Form'
 // import Input from './components/Input'
 
 const Login = () => {
