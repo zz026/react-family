@@ -1,5 +1,6 @@
 
 import React from 'react'
+import Schema from "async-validator"
 
 class FormStore {
   constructor() {
@@ -54,16 +55,17 @@ class FormStore {
 
     this.fieldList.forEach(field => {
       const { rules = [], name } = field.props
+
+      // 校验描述对象
+      const descriptor = { [name]: rules };
+      // 获取校验值
       const value = this.getFieldValue(name)
-      if (rules.length) {
-        rules.forEach(({ required = false, message = '' }) => {
-          required && this.isEmpty(value) &&err.push({
-            key: name,
-            message: message || 'please enter ',
-            value
-          })
-        })
-      }
+      // 创建校验器
+      const schema = new Schema(descriptor);
+
+      schema.validate({ [name]: value }, errors => {
+        errors && err.push(...errors)
+      })
     })
     return err
   }

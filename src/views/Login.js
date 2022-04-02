@@ -50,7 +50,7 @@ const Login = () => {
         <Input placeholder='请再次输入密码' type="password" />
       </Form.Item>
       {/* <button >提交</button> */}
-      <Button type="primary" onClick={() => form.onSubmit()}>提交</Button>
+      <Button type="primary" onClick={() => form.submit()}>提交</Button>
     </Form>
   )
 }
